@@ -15,4 +15,7 @@ public enum Images {
     static let info = Image(systemName: "info.circle")
     static let empty = Image(systemName: "archivebox.circle")
     static let error = Image(systemName: "multiply.circle")
+    
+    static let home = Image(systemName: "house.circle")
+    static let settings = Image(systemName: "gear")
 }
