@@ -45,13 +45,17 @@ struct AppTabView: View {
                     .tag(tab)
             }
         }
+        .background(
+            RoundedRectangle(cornerRadius: 20)
+                .fill(Color.white)
+        )
     }
     
     @ViewBuilder
     func tabView(for tab: AppTab) -> some View {
         switch tab {
         case .home:
-            Text("Home")
+            HomeView(viewModel: HomeViewModel())
                 .tag(AppTab.home)
         case .settings:
             Text("Settings")
