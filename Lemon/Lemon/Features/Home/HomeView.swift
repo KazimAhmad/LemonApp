@@ -14,11 +14,25 @@ struct HomeView: View {
         VStack(alignment: .leading) {
             headerView()
             ZStack {
-                backgroundSheetsView()
-                storiesView()
+                switch viewModel.viewState {
+                case .loading:
+                    LoadingView()
+                        .padding()
+                case .info:
+                    backgroundSheetsView()
+                    storiesView()
+                case .empty:
+                    LemonAlertView(config: AlertConfig(type: .empty))
+                case .error(let error):
+                    LemonAlertView(config: AlertConfig(message: error.localizedDescription))
+                }
             }
+            Spacer()
         }
         .ignoresSafeArea(edges: .top)
+        .task {
+            viewModel.getStories()
+        }
     }
     
     private func headerView() -> some View {
@@ -48,8 +62,8 @@ struct HomeView: View {
     private func storiesView() -> some View {
         ScrollView(showsIndicators: false) {
             LazyVStack(spacing: 0) {
-                ForEach(viewModel.stories, id: \.self) { story in
-                    Text(story)
+                ForEach(viewModel.stories, id: \.id) { story in
+                    StoryView(story: story)
                         .containerRelativeFrame(.vertical, count: 1, span: 1, spacing: 0, alignment: .center)
                 }
             }
@@ -91,4 +105,69 @@ struct HomeView: View {
 
 #Preview {
     HomeView(viewModel: HomeViewModel())
+}
+
+struct StoryView: View {
+    let story: Story
+    
+    var body: some View {
+        HStack {
+            VStack(alignment: .leading) {
+                Rectangle()
+                    .fill(Color.clear)
+                AuthorView(user: story.author)
+            }
+            VStack(alignment: .trailing,
+                   spacing: 8) {
+                Text(story.title)
+                    .font(AppTypography.mediumApp())
+                    .lineLimit(6)
+                Text(story.storyline)
+                    .font(AppTypography.regularApp())
+                    .lineLimit(2)
+                Text("Read story...")
+                    .font(AppTypography.regular12())
+            }
+            .multilineTextAlignment(.trailing)
+            .foregroundStyle(Color.black)
+        }
+        .padding()
+    }
+}
+
+struct AuthorView: View {
+    let user: User
+    
+    var body: some View {
+        VStack(alignment: .leading) {
+            DefaultUserPicture()
+            Text(user.name)
+                .font(AppTypography.bold18())
+            Text(user.industry)
+                .font(AppTypography.regularApp())
+            VStack(alignment: .leading) {
+                ForEach(user.passions, id: \.id) { passion in
+                    Text(passion.name)
+                        .font(AppTypography.medium(size: 12))
+                        .padding(8)
+                        .background(
+                            RoundedRectangle(cornerRadius: 16)
+                                .fill(Color.second)
+                        )
+                }
+            }
+        }
+    }
+}
+
+struct DefaultUserPicture: View {
+    let size: CGFloat = Constants.userPicSize
+    var body: some View {
+        ZStack {
+            Images.user
+                .resizable()
+                .frame(width: size,
+                       height: size)
+        }
+    }
 }

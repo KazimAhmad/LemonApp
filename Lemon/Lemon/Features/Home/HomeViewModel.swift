@@ -9,12 +9,13 @@ import Combine
 import SwiftUI
 
 class HomeViewModel: ObservableObject {
-    var stories: [String] = ["Story 1", "Story 2", "Story 3"]
+    var stories: [Story] = []
     @Published var sheetsToAnimate: [Bool] = [false, false, false, false, false, false]
     
     @Published var detector: CurrentValueSubject<CGFloat, Never>
     @Published var publisher: AnyPublisher<CGFloat, Never>
-
+    @Published var viewState: ViewState = .loading
+    
     init() {
         let detector = CurrentValueSubject<CGFloat, Never>(0)
         self.publisher = detector
@@ -39,6 +40,18 @@ class HomeViewModel: ObservableObject {
                                           execute: { [weak self] in
                 self?.sheetsToAnimate[i] = false
             })
+        }
+    }
+}
+
+//MARK: Services
+extension HomeViewModel {
+    func getStories() {
+        guard stories.count == 0 else { return }
+        let repo = StoryRepo()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            self.stories = repo.getStories()
+            self.viewState = .info
         }
     }
 }

@@ -34,4 +34,7 @@ enum Constants {
                                                .second.opacity(0.2),
                                                .second.opacity(0.1),
                                                .clear]
+    
+    static let userPicSize: CGFloat = 32.0
+    static let userPicSizeBig: CGFloat = 60.0
 }

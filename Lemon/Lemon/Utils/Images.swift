@@ -18,4 +18,6 @@ public enum Images {
     
     static let home = Image(systemName: "house.circle")
     static let settings = Image(systemName: "gear")
+    
+    static let user = Image(systemName: "person.crop.circle")
 }

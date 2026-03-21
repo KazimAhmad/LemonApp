@@ -49,10 +49,10 @@ struct AlertConfig {
     let confirmAction: (() -> Void)?
     let cancelAction: (() -> Void)?
     
-    init(message: String,
-         type: AlertType,
-         confirmTitle: String,
-         cancelTitle: String? = nil,
+    init(message: String = "Unexpected error occured while processing your request. Please try again later.",
+         type: AlertType = .error,
+         confirmTitle: String = "Try Again",
+         cancelTitle: String? = "Cancel",
          confirmAction: (() -> Void)? = nil,
          cancelAction:  (() -> Void)? = nil) {
         self.title = type.title
@@ -65,12 +65,12 @@ struct AlertConfig {
     }
 }
 
-struct AlertView: View {
-    let config: AlertConfig = AlertConfig(message: "Unexpected error occured while processing your request. Please try again later.",
-                                          type: .error,
-                                          confirmTitle: "Try Again",
-                                          cancelTitle: "Cancel",
-                                          confirmAction: {}, cancelAction: {})
+struct LemonAlertView: View {
+    let config: AlertConfig
+    
+    init(config: AlertConfig = AlertConfig()) {
+        self.config = config
+    }
     
     var body: some View {
         ZStack {
@@ -124,5 +124,5 @@ struct AlertView: View {
 }
 
 #Preview {
-    AlertView()
+    LemonAlertView()
 }

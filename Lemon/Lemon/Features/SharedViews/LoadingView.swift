@@ -20,7 +20,8 @@ struct LoadingView: View {
     @State private var currentSlice: Int = 1
     @State private var circle: Double = 0.0
     var body: some View {
-        ZStack {
+        HStack {
+            Spacer()
             CircularLayout() {
                 ForEach(0 ..< totalSlices, id: \.self) { i in
                     LemonSlice()
@@ -28,6 +29,7 @@ struct LoadingView: View {
                         .opacity(i < currentSlice ? 1 : 0.2)
                 }
             }
+            Spacer()
         }
         .background(
             ZStack {
