@@ -35,25 +35,25 @@ enum AppTypography {
 
 extension AppTypography {
     static func medium(size: CGFloat) -> Font {
-        Font.custom("Smythe-Regular",
+        Font.custom("DynaPuff-Regular",
                     size: size,
                     relativeTo: .title)
     }
     
     static func mediumApp() -> Font {
-        Font.custom("Smythe-Regular",
+        Font.custom("DynaPuff-Regular",
                     size: 16.0,
                     relativeTo: .title)
     }
     
     static func medium14() -> Font {
-        Font.custom("Smythe-Regular",
+        Font.custom("DynaPuff-Regular",
                     size: 14.0,
                     relativeTo: .title)
     }
     
     static func medium18() -> Font {
-        Font.custom("Smythe-Regular",
+        Font.custom("DynaPuff-Regular",
                     size: 18.0,
                     relativeTo: .title)
     }
