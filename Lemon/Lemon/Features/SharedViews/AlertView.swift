@@ -73,48 +73,53 @@ struct AlertView: View {
                                           confirmAction: {}, cancelAction: {})
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 16) {
-            HStack(spacing: 16) {
-                config.type.image
-                    .resizable()
-                    .frame(width: 28, height: 28)
-                Text(config.title)
-                    .font(AppTypography.bold(size: 28))
-                Spacer()
-            }
-            Text(config.message)
-                .font(AppTypography.regularApp())
-            HStack {
-                Spacer()
-                if let cancel = config.cancelTitle {
-                    Button {
-                        config.cancelAction?()
-                    } label: {
-                        Text(cancel)
+        ZStack {
+            Color(.clear)
+                .edgesIgnoringSafeArea(.all)
+            VStack(alignment: .leading, spacing: 16) {
+                HStack(spacing: 16) {
+                    config.type.image
+                        .resizable()
+                        .frame(width: 28, height: 28)
+                    Text(config.title)
+                        .font(AppTypography.bold(size: 28))
+                    Spacer()
+                }
+                Text(config.message)
+                    .font(AppTypography.regularApp())
+                HStack {
+                    Spacer()
+                    if let cancel = config.cancelTitle {
+                        Button {
+                            config.cancelAction?()
+                        } label: {
+                            Text(cancel)
+                        }
+                        .buttonStyle(GreenBorderButton())
+                        .frame(width: 120)
                     }
-                    .buttonStyle(GreenBorderButton())
+                    Button {
+                        config.confirmAction?()
+                    } label: {
+                        Text(config.confirmTitle)
+                    }
+                    .buttonStyle(YellowAndBlackButton())
                     .frame(width: 120)
                 }
-                Button {
-                    config.confirmAction?()
-                } label: {
-                    Text(config.confirmTitle)
-                }
-                .buttonStyle(YellowAndBlackButton())
-                .frame(width: 120)
             }
+            .padding()
+            .foregroundStyle(Color(uiColor: .systemBackground))
+            .frame(maxWidth: .infinity)
+            .background(
+                UnevenRoundedRectangle(cornerRadii: .init(topLeading: 0.0,
+                                                          bottomLeading: Constants.alertCornerRadius,
+                                                          bottomTrailing: 0.0, topTrailing: Constants.alertCornerRadius))
+                .fill(Color.primary)
+                .shadow(color: .accent.opacity(0.8),
+                        radius: Constants.shadowRadius)
+            )
+            .padding(.horizontal)
         }
-        .padding()
-        .foregroundStyle(Color(uiColor: .systemBackground))
-        .frame(maxWidth: .infinity)
-        .background(
-            UnevenRoundedRectangle(cornerRadii: .init(topLeading: 0.0,
-                                                      bottomLeading: Constants.alertCornerRadius,
-                                                      bottomTrailing: 0.0, topTrailing: Constants.alertCornerRadius))
-            .fill(Color.primary)
-        )
-        .padding(.horizontal)
-
     }
 }
 
