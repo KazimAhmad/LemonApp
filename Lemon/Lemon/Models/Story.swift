@@ -13,5 +13,8 @@ struct Story: Codable {
     var storyline: String
     var date: Date
     
+    var isLiked: Bool
+    var isSaved: Bool
+    
     var author: User
 }

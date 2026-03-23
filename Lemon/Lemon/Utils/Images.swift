@@ -20,4 +20,13 @@ public enum Images {
     static let settings = Image(systemName: "gear")
     
     static let user = Image(systemName: "person.crop.circle")
+    
+    static let checkMark = Image(systemName: "checkmark")
+    static let share = Image(systemName: "square.and.arrow.up")
+    
+    static let like: Image = Image(systemName: "heart")
+    static let liked: Image = Image(systemName: "heart.fill")
+    
+    static let save: Image = Image(systemName: "bookmark")
+    static let saved: Image = Image(systemName: "bookmark.fill")
 }

@@ -16,4 +16,18 @@ struct User: Codable {
     var industry: String
     var bio: String
     var passions: [Passion]
+    
+    func passionAndCount() -> ([Passion], Int) {
+        if passions.count > 0 {
+            return ([passions[0]], passions.count - 1)
+        }
+        return ([], 0)
+    }
+    
+    func imageURL() -> URL? {
+        if !image.isEmpty {
+            return URL(string: image)
+        }
+        return nil
+    }
 }
