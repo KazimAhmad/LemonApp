@@ -10,6 +10,7 @@ import SwiftUI
 enum AppTab: String, Hashable, CaseIterable {
     case home
     case settings
+    case search
     
     var title: String {
         switch self {
@@ -17,38 +18,45 @@ enum AppTab: String, Hashable, CaseIterable {
             return "Home"
         case .settings:
             return "Settings"
+        case .search:
+            return "Search"
         }
     }
     
-    var symbolImage: Image {
+    var symbolImage: String {
         switch self {
         case .home:
-            return Images.home
+            return Images.homeSystemImage
         case .settings:
-            return Images.settings
+            return Images.settingsSystemImage
+        case .search:
+            return Images.searchSystemImage
+        }
+    }
+    
+    var role: TabRole? {
+        switch self {
+        case .search:
+            return .search
+        default:
+            return nil
         }
     }
 }
 
 
 struct AppTabView: View {
-    @State private var selectedTab: AppTab = .home
-
+    
     var body: some View {
-        TabView(selection: $selectedTab) {
+        TabView {
             ForEach(AppTab.allCases, id: \.rawValue) { tab in
-                tabView(for: tab)
-                    .tabItem {
-                        tab.symbolImage
-                        Text(tab == selectedTab ? tab.title : "")
-                    }
-                    .tag(tab)
+                Tab(tab.title,
+                    systemImage: tab.symbolImage,
+                    role: tab.role) {
+                    tabView(for: tab)
+                }
             }
         }
-        .background(
-            RoundedRectangle(cornerRadius: 20)
-                .fill(Color.white)
-        )
     }
     
     @ViewBuilder
@@ -56,10 +64,13 @@ struct AppTabView: View {
         switch tab {
         case .home:
             HomeView(viewModel: HomeViewModel())
-                .tag(AppTab.home)
+                .tag(tab)
         case .settings:
             Text("Settings")
-                .tag(AppTab.settings)
+                .tag(tab)
+        case .search:
+            Text("Search")
+                .tag(tab)
         }
     }
 }

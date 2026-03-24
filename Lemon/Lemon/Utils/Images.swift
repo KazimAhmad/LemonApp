@@ -10,6 +10,10 @@ import SwiftUI
 public enum Images {
     static let icon: String = "icon"
     
+    static let homeSystemImage: String = "house.circle"
+    static let settingsSystemImage: String = "gear"
+    static let searchSystemImage: String = "magnifyingglass"
+
     static let warning: Image = Image(systemName: "exclamationmark.circle")
     static let done = Image(systemName: "checkmark.circle")
     static let info = Image(systemName: "info.circle")
@@ -18,7 +22,8 @@ public enum Images {
     
     static let home = Image(systemName: "house.circle")
     static let settings = Image(systemName: "gear")
-    
+    static let search = Image(systemName: "magnifyingglass")
+
     static let user = Image(systemName: "person.crop.circle")
     
     static let checkMark = Image(systemName: "checkmark.circle.fill")
@@ -31,4 +36,5 @@ public enum Images {
     static let saved: Image = Image(systemName: "bookmark.fill")
     
     static let calendar = Image(systemName: "calendar.circle")
+    
 }
