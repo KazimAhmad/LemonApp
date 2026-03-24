@@ -11,9 +11,10 @@ public enum Images {
     static let icon: String = "icon"
     
     static let homeSystemImage: String = "house.circle"
+    static let userSystemImage: String = "person.crop.circle"
     static let settingsSystemImage: String = "gear"
     static let searchSystemImage: String = "magnifyingglass"
-
+    
     static let warning: Image = Image(systemName: "exclamationmark.circle")
     static let done = Image(systemName: "checkmark.circle")
     static let info = Image(systemName: "info.circle")

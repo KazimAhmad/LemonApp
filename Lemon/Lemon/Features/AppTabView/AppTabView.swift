@@ -9,6 +9,7 @@ import SwiftUI
 
 enum AppTab: String, Hashable, CaseIterable {
     case home
+    case profile
     case settings
     case search
     
@@ -16,6 +17,8 @@ enum AppTab: String, Hashable, CaseIterable {
         switch self {
         case .home:
             return "Home"
+        case .profile:
+            return "Profile"
         case .settings:
             return "Settings"
         case .search:
@@ -27,6 +30,8 @@ enum AppTab: String, Hashable, CaseIterable {
         switch self {
         case .home:
             return Images.homeSystemImage
+        case .profile:
+            return Images.userSystemImage
         case .settings:
             return Images.settingsSystemImage
         case .search:
@@ -65,6 +70,8 @@ struct AppTabView: View {
         case .home:
             HomeView(viewModel: HomeViewModel())
                 .tag(tab)
+        case .profile:
+            Text("Profile")
         case .settings:
             Text("Settings")
                 .tag(tab)
