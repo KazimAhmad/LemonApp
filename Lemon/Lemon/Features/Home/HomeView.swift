@@ -13,6 +13,9 @@ struct HomeView: View {
     var body: some View {
         VStack(alignment: .leading) {
             headerView()
+            Text("Recent Stories")
+                .padding()
+                .font(AppTypography.mediumApp())
             ZStack {
                 switch viewModel.viewState {
                 case .loading:
@@ -66,6 +69,7 @@ struct HomeView: View {
                     StoryView(story: story)
                         .containerRelativeFrame(.vertical, count: 1, span: 1, spacing: 0, alignment: .center)
                 }
+                LoadMoreView()
             }
             .scrollTargetLayout()
             .background(GeometryReader {
@@ -105,4 +109,11 @@ struct HomeView: View {
 
 #Preview {
     HomeView(viewModel: HomeViewModel())
+}
+
+struct LoadMoreView: View {
+    var body: some View {
+        ProgressView()
+            .tint(Color.second)
+    }
 }

@@ -30,8 +30,18 @@ struct StoryView: View {
                     .font(AppTypography.regularApp())
                     .lineLimit(2)
                 Text("Read story...")
-                    .font(AppTypography.regular12())
+                    .font(AppTypography.medium(size: 12))
+                    .foregroundStyle(Color.accent)
+                    .padding(8)
+                    .background(
+                        Capsule()
+                            .fill(Color.black)
+                    )
                 Spacer()
+                HStack {
+                    Text(story.date.appString)
+                        .font(AppTypography.regular14())
+                }
                 LikeAndSaveView(story: story)
                     .padding(.bottom, 48)
             }
@@ -69,15 +79,8 @@ struct AuthorView: View {
                 if user.isLemon {
                     Images.checkMark
                         .resizable()
-                        .frame(width: 10, height: 10)
+                        .frame(width: 20, height: 20)
                         .foregroundStyle(Color.accent)
-                        .padding(6)
-                        .background(
-                            Circle()
-                                .fill(.clear)
-                                .stroke(Color.accent,
-                                        lineWidth: 2)
-                        )
                 }
             }
             Text(user.industry)
@@ -87,6 +90,7 @@ struct AuthorView: View {
                 HStack {
                     Text(passion.name)
                         .font(AppTypography.medium(size: 12))
+                        .foregroundStyle(Color.white)
                         .padding(8)
                         .background(
                             RoundedRectangle(cornerRadius: 16)
@@ -104,15 +108,38 @@ struct AuthorView: View {
             } label: {
                 Text("Follow")
                     .font(AppTypography.regularApp())
+                    .foregroundStyle(Color.primary)
                     .padding(.vertical, 4)
                     .padding(.horizontal, 16)
                     .background(
                         RoundedRectangle(cornerRadius: 8)
                             .fill(Color.clear)
-                            .stroke(Color.accent, lineWidth: 1)
+                            .stroke(Color.accent, lineWidth: 2)
                     )
             }
             .padding(.top, 8)
         }
     }
+}
+
+#Preview {
+    StoryView(story: Story(id: 0,
+                           title: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
+                           storyline: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).",
+                           date: Date(),
+                           isLiked: false,
+                           isSaved: false,
+                           author: User(id: 0,
+                                                                                                         email: "email@domain.com",
+                                                                                                         name: "User \(0)",
+                                                                                                         isLemon: true,
+                                                                                                         image: "",
+                                                                                                         industry: "Work \(0)",
+                                                                                                         bio: "",
+                                                                                                         passions: [Passion(id: 0,
+                                                                                                                            name: "Writing"),
+                                                                                                                    Passion(id: 1,
+                                                                                                                            name: "Painting"),
+                                                                                                                    Passion(id: 2,
+                                                                                                                            name: "Singing")])))
 }

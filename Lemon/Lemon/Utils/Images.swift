@@ -21,7 +21,7 @@ public enum Images {
     
     static let user = Image(systemName: "person.crop.circle")
     
-    static let checkMark = Image(systemName: "checkmark")
+    static let checkMark = Image(systemName: "checkmark.circle.fill")
     static let share = Image(systemName: "square.and.arrow.up")
     
     static let like: Image = Image(systemName: "heart")
@@ -29,4 +29,6 @@ public enum Images {
     
     static let save: Image = Image(systemName: "bookmark")
     static let saved: Image = Image(systemName: "bookmark.fill")
+    
+    static let calendar = Image(systemName: "calendar.circle")
 }
