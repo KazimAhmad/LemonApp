@@ -9,25 +9,20 @@ import Combine
 import SwiftUI
 
 class SignUpViewModel: ObservableObject {
-    @Published var firstName: String = ""
-    @Published var lastName: String = ""
-
-    @Published var email: String = ""
-    
-    @Published var password: String = ""
-    @Published var confirmPassword: String = ""
-    
-    @Published var passions: [Passion] = []
+    @Published var signUp: SignUpObject
+    init(signUp: SignUpObject = SignUpObject()) {
+        self.signUp = signUp
+    }
     
     func isFormValid() -> Bool {
-        (!email.isEmpty && !isEmailValid()) && !password.isEmpty && !confirmPassword.isEmpty && passions.count == 3 || !firstName.isEmpty || !lastName.isEmpty || passwordsMatch()
+        (!signUp.email.isEmpty && !isEmailValid()) && !signUp.password.isEmpty && !signUp.confirmPassword.isEmpty && signUp.passions.count == 3 || !signUp.firstName.isEmpty || !signUp.lastName.isEmpty || passwordsMatch()
     }
     
     func passwordsMatch() -> Bool {
-        password == confirmPassword
+        signUp.password == signUp.confirmPassword
     }
     
     func isEmailValid() -> Bool {
-        email.isEmail
+        signUp.email.isEmail
     }
 }

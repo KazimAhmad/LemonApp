@@ -1,0 +1,163 @@
+[
+    {
+        "id": 1,
+        "name": "Creative & Artistic Pursuits",
+        "passions": [
+            {
+                "id": 1,
+                "name": "Painting"
+            },
+            {
+                "id": 2,
+                "name": "Drawing"
+            },
+            {
+                "id": 3,
+                "name": "Writing"
+            },
+            {
+                "id": 4,
+                "name": "Poetry"
+            }
+        ]
+    },
+    
+    {
+        "id": 2,
+        "name": "Crafts",
+        "passions": [
+            {
+                "id": 5,
+                "name": "Knitting"
+            },
+            {
+                "id": 6,
+                "name": "Sewing"
+            },
+            {
+                "id": 7,
+                "name": "Pottery"
+            },
+            {
+                "id": 8,
+                "name": "Woodworking"
+            }
+        ]
+    },
+
+    {
+        "id": 3,
+        "name": "Performing Arts",
+        "passions": [
+            {
+                "id": 9,
+                "name": "Singing"
+            },
+            {
+                "id": 10,
+                "name": "Acting"
+            },
+            {
+                "id": 11,
+                "name": "Dancing"
+            },
+            {
+                "id": 12,
+                "name": "Playing instruments"
+            },
+            {
+                "id": 13,
+                "name": "StandUp Comedy"
+            },
+            {
+                "id": 14,
+                "name": "Storytelling"
+            }
+        ]
+    },
+    
+    {
+        "id": 4,
+        "name": "Physical Activities & Sports",
+        "passions": [
+            {
+                "id": 15,
+                "name": "Hiking"
+            },
+            {
+                "id": 16,
+                "name": "Surfing"
+            },
+            {
+                "id": 17,
+                "name": "Cycling"
+            },
+            {
+                "id": 18,
+                "name": "Yoga"
+            },
+            {
+                "id": 19,
+                "name": "Weightlifting"
+            },
+            {
+                "id": 20,
+                "name": "Sports"
+            }
+        ]
+    },
+    
+    {
+        "id": 5,
+        "name": "Lifestyle & Interests",
+        "passions": [
+            {
+                "id": 21,
+                "name": "Baking"
+            },
+            {
+                "id": 22,
+                "name": "Gardening"
+            },
+            {
+                "id": 23,
+                "name": "Astronomy"
+            },
+            {
+                "id": 24,
+                "name": "Hiking"
+            },
+            {
+                "id": 25,
+                "name": "Volunteering"
+            },
+            {
+                "id": 26,
+                "name": "Board Games"
+            }
+        ]
+    },
+    
+    {
+        "id": 6,
+        "name": "Intellectual & Gaming",
+        "passions": [
+            {
+                "id": 27,
+                "name": "Reading"
+            },
+            {
+                "id": 28,
+                "name": "Strategy Games"
+            },
+            {
+                "id": 29,
+                "name": "Language Learning"
+            },
+            {
+                "id": 30,
+                "name": "Video Gaming"
+            }
+        ]
+    }
+]

@@ -11,3 +11,9 @@ struct Passion: Codable {
     var id: Int
     var name: String
 }
+
+struct PassionCategory: Codable {
+    var id: Int
+    var name: String
+    var passions: [Passion]
+}

@@ -43,17 +43,17 @@ struct SignUpView: View {
         VStack {
             HStack {
                 AppTextField(title: "First Name",
-                             text: $viewModel.firstName)
+                             text: $viewModel.signUp.firstName)
                 AppTextField(title: "Last Name",
-                             text: $viewModel.lastName)
+                             text: $viewModel.signUp.lastName)
             }
             AppTextField(title: "Email",
-                         text: $viewModel.email)
+                         text: $viewModel.signUp.email)
             AppTextField(title: "Password",
-                         text: $viewModel.password,
+                         text: $viewModel.signUp.password,
                          isSecure: true)
             AppTextField(title: "Confirm Password",
-                         text: $viewModel.confirmPassword,
+                         text: $viewModel.signUp.confirmPassword,
                          isSecure: true)
         }
         .font(AppTypography.mediumApp())
@@ -64,7 +64,7 @@ struct SignUpView: View {
             Button {
                 
             } label: {
-                Text("Sign Up")
+                Text("Next")
             }
             .disabled(!viewModel.isFormValid())
             .buttonStyle(YellowAndBlackButton())
@@ -72,7 +72,7 @@ struct SignUpView: View {
             Button {
                 
             } label: {
-                Text("Don't have an account? Sign up")
+                Text("Already have an account? Login")
                     .font(AppTypography.mediumApp())
                     .foregroundStyle(Color.second)
                     .padding(.vertical)

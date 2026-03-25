@@ -5,7 +5,7 @@
 //  Created by Kazim Ahmad on 21/03/2026.
 //
 
-import Foundation
+import SwiftUI
 
 struct User: Codable {
     var id: Int
@@ -34,5 +34,37 @@ struct User: Codable {
     
     func name() -> String {
         "\(firstName) \(lastName)"
+    }
+}
+
+struct SignUpObject {
+    var email: String
+    var password: String
+    var confirmPassword: String
+    var firstName: String
+    var lastName: String
+    var industry: String
+    var bio: String
+    var image: Image?
+    var passions: [Passion]
+    
+    init(email: String = "",
+         password: String = "",
+         confirmPassword: String = "",
+         firstName: String = "",
+         lastName: String = "",
+         industry: String = "",
+         bio: String = "",
+         image: Image? = nil,
+         passions: [Passion] = []) {
+        self.email = email
+        self.password = password
+        self.confirmPassword = confirmPassword
+        self.firstName = firstName
+        self.lastName = lastName
+        self.industry = industry
+        self.bio = bio
+        self.image = image
+        self.passions = passions
     }
 }

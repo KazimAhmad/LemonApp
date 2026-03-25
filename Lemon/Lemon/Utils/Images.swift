@@ -38,4 +38,5 @@ public enum Images {
     
     static let calendar = Image(systemName: "calendar.circle")
     
+    static let plus: Image = Image(systemName: "plus")
 }
