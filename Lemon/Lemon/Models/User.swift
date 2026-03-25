@@ -45,7 +45,7 @@ struct SignUpObject {
     var lastName: String
     var industry: String
     var bio: String
-    var image: Image?
+    var image: UIImage?
     var passions: [Passion]
     
     init(email: String = "",
@@ -55,7 +55,7 @@ struct SignUpObject {
          lastName: String = "",
          industry: String = "",
          bio: String = "",
-         image: Image? = nil,
+         image: UIImage? = nil,
          passions: [Passion] = []) {
         self.email = email
         self.password = password
