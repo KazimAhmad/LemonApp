@@ -10,7 +10,8 @@ import Foundation
 struct User: Codable {
     var id: Int
     var email: String
-    var name: String
+    var firstName: String
+    var lastName: String
     var isLemon: Bool
     var image: String
     var industry: String
@@ -29,5 +30,9 @@ struct User: Codable {
             return URL(string: image)
         }
         return nil
+    }
+    
+    func name() -> String {
+        "\(firstName) \(lastName)"
     }
 }

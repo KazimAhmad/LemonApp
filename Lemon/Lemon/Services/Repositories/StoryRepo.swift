@@ -18,18 +18,19 @@ class StoryRepo {
                               isLiked: false,
                               isSaved: false,
                               author: User(id: index,
-                                                                                                            email: "email@domain.com",
-                                                                                                            name: "User \(index)",
-                                                                                                            isLemon: true,
-                                                                                                            image: "",
-                                                                                                            industry: "Work \(index)",
-                                                                                                            bio: "",
-                                                                                                            passions: [Passion(id: 0,
-                                                                                                                               name: "Writing"),
-                                                                                                                       Passion(id: 1,
-                                                                                                                               name: "Painting"),
-                                                                                                                       Passion(id: 2,
-                                                                                                                               name: "Singing")]))
+                                           email: "email@domain.com",
+                                           firstName: "User \(index)",
+                                           lastName: "User \(index)",
+                                           isLemon: true,
+                                           image: "",
+                                           industry: "Work \(index)",
+                                           bio: "",
+                                           passions: [Passion(id: 0,
+                                                              name: "Writing"),
+                                                      Passion(id: 1,
+                                                              name: "Painting"),
+                                                      Passion(id: 2,
+                                                              name: "Singing")]))
             stories.append(story)
         }
         return stories

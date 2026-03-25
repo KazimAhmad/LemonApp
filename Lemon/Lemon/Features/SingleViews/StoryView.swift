@@ -74,7 +74,7 @@ struct AuthorView: View {
                 DefaultUserPicture()
             }
             HStack {
-                Text(user.name)
+                Text(user.name())
                     .font(AppTypography.bold18())
                 if user.isLemon {
                     Images.checkMark
@@ -130,16 +130,17 @@ struct AuthorView: View {
                            isLiked: false,
                            isSaved: false,
                            author: User(id: 0,
-                                                                                                         email: "email@domain.com",
-                                                                                                         name: "User \(0)",
-                                                                                                         isLemon: true,
-                                                                                                         image: "",
-                                                                                                         industry: "Work \(0)",
-                                                                                                         bio: "",
-                                                                                                         passions: [Passion(id: 0,
-                                                                                                                            name: "Writing"),
-                                                                                                                    Passion(id: 1,
-                                                                                                                            name: "Painting"),
-                                                                                                                    Passion(id: 2,
-                                                                                                                            name: "Singing")])))
+                                        email: "email@domain.com",
+                                        firstName: "User \(0)",
+                                        lastName: "User \(0)",
+                                        isLemon: true,
+                                        image: "",
+                                        industry: "Work \(0)",
+                                        bio: "",
+                                        passions: [Passion(id: 0,
+                                                           name: "Writing"),
+                                                   Passion(id: 1,
+                                                           name: "Painting"),
+                                                   Passion(id: 2,
+                                                           name: "Singing")])))
 }

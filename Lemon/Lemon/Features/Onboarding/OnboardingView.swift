@@ -11,7 +11,7 @@ struct OnboardingView: View {
     @StateObject var viewModel: OnboardingViewModel
     var body: some View {
         ZStack {
-            gradientsView()
+            GradientBackgroundView()
             logoView()
             VStack {
                 Spacer()
@@ -19,23 +19,6 @@ struct OnboardingView: View {
                 footerView()
             }
         }
-    }
-    
-    private func gradientsView() -> some View {
-        VStack {
-            HStack {
-                YellowGradientView()
-                Spacer()
-            }
-            .offset(x: -80)
-            Spacer()
-            HStack {
-                Spacer()
-                GreenGradientView()
-            }
-            .offset(x: 80)
-        }
-        .padding(.vertical)
     }
     
     private func logoView() -> some View {
