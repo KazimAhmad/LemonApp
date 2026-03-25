@@ -37,4 +37,5 @@ enum Constants {
     
     static let userPicSize: CGFloat = 32.0
     static let userPicSizeBig: CGFloat = 60.0
+    static let userPicSizeExtraLarge: CGFloat = 100.0
 }

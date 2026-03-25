@@ -24,6 +24,7 @@ struct AppTextField: View {
         if isSecure {
             SecureField(title, text: text)
                 .textFieldStyle(.plain)
+                .autocorrectionDisabled()
                 .padding()
                 .background(
                     RoundedRectangle(cornerRadius: 16.0)
@@ -33,6 +34,8 @@ struct AppTextField: View {
         } else {
             TextField(title, text: text)
                 .textFieldStyle(.plain)
+                .autocorrectionDisabled()
+                .font(AppTypography.mediumApp())
                 .padding()
                 .background(
                     RoundedRectangle(cornerRadius: 16.0)
@@ -45,4 +48,28 @@ struct AppTextField: View {
 
 #Preview {
     AppTextField()
+}
+
+struct AppTextView: View {
+    @State var title: String
+    @State var text: Binding<String>
+    
+    init (title: String = "Title",
+          text: Binding<String> = .constant("")) {
+        self.text = text
+        self.title = title
+    }
+    
+    var body: some View {
+        TextField(title, text: text,  axis: .vertical)
+            .lineLimit(8...10)
+            .autocorrectionDisabled()
+            .font(AppTypography.mediumApp())
+            .padding()
+            .background(
+                RoundedRectangle(cornerRadius: 16)
+                    .fill(Color.clear)
+                    .stroke(Color.second, lineWidth: 1)
+            )
+    }
 }

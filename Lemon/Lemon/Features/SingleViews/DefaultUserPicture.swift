@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct DefaultUserPicture: View {
-    let size: CGFloat = Constants.userPicSize
+    var size: CGFloat = Constants.userPicSize
     var body: some View {
         ZStack {
             Circle()

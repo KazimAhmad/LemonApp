@@ -15,7 +15,7 @@ class SignUpViewModel: ObservableObject {
     }
     
     func isFormValid() -> Bool {
-        (!signUp.email.isEmpty && !isEmailValid()) && !signUp.password.isEmpty && !signUp.confirmPassword.isEmpty && signUp.passions.count == 3 || !signUp.firstName.isEmpty || !signUp.lastName.isEmpty || passwordsMatch()
+        (!signUp.email.isEmpty && isEmailValid()) && !signUp.password.isEmpty && !signUp.confirmPassword.isEmpty && !signUp.firstName.isEmpty && !signUp.lastName.isEmpty && passwordsMatch()
     }
     
     func passwordsMatch() -> Bool {
