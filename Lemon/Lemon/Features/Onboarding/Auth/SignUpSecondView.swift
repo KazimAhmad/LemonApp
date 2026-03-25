@@ -20,7 +20,7 @@ struct SignUpSecondView: View {
                 logoView()
                 AppTextField(title: "Work", text: $viewModel.signUpObject.industry)
                 AppTextView(title: "Bio", text: $viewModel.signUpObject.bio)
-                PassionsView(viewModel: PassionsViewModel(selectedPassions: viewModel.signUpObject.passions))
+                PassionsView(selectedPassions: $viewModel.signUpObject.passions)
                 Button {
                     
                 } label: {
