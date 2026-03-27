@@ -43,4 +43,6 @@ public enum Images {
     static let camera: Image = Image(systemName: "camera.circle")
     
     static let delete: Image = Image(systemName: "trash.circle")
+    
+    static let comment: Image = Image(systemName: "bubble.left.and.bubble.right")
 }
