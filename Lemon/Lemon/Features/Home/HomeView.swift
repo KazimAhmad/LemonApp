@@ -12,7 +12,7 @@ struct HomeView: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            headerView()
+            AppHeaderView()
             Text("Recent Stories")
                 .padding()
                 .font(AppTypography.mediumApp())
@@ -36,30 +36,6 @@ struct HomeView: View {
         .task {
             viewModel.getStories()
         }
-    }
-    
-    private func headerView() -> some View {
-        VStack {
-            Spacer()
-                .frame(height: 48)
-            HStack(alignment: .bottom) {
-                Image(Images.icon)
-                    .resizable()
-                    .frame(width: 60, height: 60)
-                Text("Lemon")
-                    .font(AppTypography.bold(size: 32))
-                    .foregroundStyle(Color(uiColor: .systemBackground))
-                Spacer()
-            }
-        }
-        .padding()
-        .background(
-            UnevenRoundedRectangle(cornerRadii: .init(topLeading: 0.0,
-                                                      bottomLeading: 60.0,
-                                                      bottomTrailing: 0.0,
-                                                      topTrailing: 0.0))
-            .fill(Color.second)
-        )
     }
     
     private func storiesView() -> some View {

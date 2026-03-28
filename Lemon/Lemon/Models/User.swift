@@ -16,6 +16,11 @@ struct User: Codable {
     var image: String
     var industry: String
     var bio: String
+    
+    var stories: Int
+    var followers: Int
+    var following: Int
+    
     var passions: [Passion]
     
     func passionAndCount() -> ([Passion], Int) {
@@ -34,7 +39,7 @@ struct User: Codable {
     
     func name() -> String {
         "\(firstName) \(lastName)"
-    }
+    }    
 }
 
 struct SignUpObject {

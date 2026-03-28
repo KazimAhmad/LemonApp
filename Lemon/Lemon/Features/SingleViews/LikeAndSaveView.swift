@@ -59,7 +59,7 @@ struct LikeAndSaveView: View {
                     .fill(Color.clear)
                     .stroke(Color.black, lineWidth: 1)
             )
-            Text(story.numberOfComments())
+            Text(story.comments.inStringWithoutZero)
         }
     }
     
@@ -76,7 +76,7 @@ struct LikeAndSaveView: View {
                         disableLike = false
                     }
                 }
-                story.likesCount += story.isLiked ? -1 : 1
+                story.likes += story.isLiked ? -1 : 1
                 story.isLiked.toggle()
                 didToggleLike(story.isLiked)
             } label: {
@@ -91,7 +91,7 @@ struct LikeAndSaveView: View {
             )
             .disabled(disableLike)
             .offset(y: animateLike ? 8 : 0)
-            Text(story.numberOfLikes())
+            Text(story.likes.inStringWithoutZero)
                 .font(animateLike ? AppTypography.medium(size: 1) : AppTypography.medium14())
         }
     }
@@ -102,8 +102,8 @@ struct LikeAndSaveView: View {
                                  title: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
                                  storyline: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).",
                                  date: Date(),
-                                 likesCount: 9580,
-                                 commentsCount: 1690,
+                                 likes: 9580,
+                                 comments: 1690,
                                  isLiked: false,
                                  isSaved: false,
                                  author: User(id: 0,
@@ -114,6 +114,9 @@ struct LikeAndSaveView: View {
                                               image: "",
                                               industry: "Work \(0)",
                                               bio: "",
+                                              stories: 200,
+                                              followers: 200,
+                                              following: 200,
                                               passions: [Passion(id: 0,
                                                                  name: "Writing"),
                                                          Passion(id: 1,

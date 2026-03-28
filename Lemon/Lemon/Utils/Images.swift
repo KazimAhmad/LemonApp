@@ -45,4 +45,6 @@ public enum Images {
     static let delete: Image = Image(systemName: "trash.circle")
     
     static let comment: Image = Image(systemName: "bubble.left.and.bubble.right")
+    
+    static let quoute: Image = Image(systemName: "quote.opening")
 }

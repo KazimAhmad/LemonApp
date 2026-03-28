@@ -23,6 +23,12 @@ struct StoryView: View {
                 ShareButton(item: .init(id: story.id,
                                         type: .story,
                                         text: story.title))
+                HStack {
+                    Images.quoute
+                        .resizable()
+                        .frame(width: 32, height: 24)
+                    Spacer()
+                }
                 Text(story.title)
                     .font(AppTypography.mediumApp())
                     .lineLimit(6)
@@ -79,7 +85,7 @@ struct AuthorView: View {
                 if user.isLemon {
                     Images.checkMark
                         .resizable()
-                        .frame(width: 20, height: 20)
+                        .frame(width: 18, height: 18)
                         .foregroundStyle(Color.accent)
                 }
             }
@@ -127,8 +133,8 @@ struct AuthorView: View {
                            title: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
                            storyline: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).",
                            date: Date(),
-                           likesCount: 900,
-                           commentsCount: 1000,
+                           likes: 900,
+                           comments: 1000,
                            isLiked: false,
                            isSaved: false,
                            author: User(id: 0,
@@ -139,6 +145,9 @@ struct AuthorView: View {
                                         image: "",
                                         industry: "Work \(0)",
                                         bio: "",
+                                        stories: 20,
+                                        followers: 200,
+                                        following: 200,
                                         passions: [Passion(id: 0,
                                                            name: "Writing"),
                                                    Passion(id: 1,
