@@ -74,7 +74,7 @@ struct SignUpView: View {
             } label: {
                 Text("Already have an account? Login")
                     .font(AppTypography.mediumApp())
-                    .foregroundStyle(Color.second)
+                    .foregroundStyle(Color.third)
                     .padding(.vertical)
             }
         }

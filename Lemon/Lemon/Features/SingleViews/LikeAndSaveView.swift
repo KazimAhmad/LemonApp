@@ -9,6 +9,8 @@ import SwiftUI
 
 struct LikeAndSaveView: View {
     @State var story: Story
+    var color: Color = Color.third
+    
     var didToggleLike: (Bool) -> Void = { _ in }
     var didToggleSave: (Bool) -> Void = { _ in }
     var didPressComments: (() -> Void)? = nil
@@ -24,7 +26,7 @@ struct LikeAndSaveView: View {
 
         }
         .font(AppTypography.medium14())
-        .foregroundStyle(Color.black)
+        .foregroundStyle(color)
     }
     
     private func savedButton() -> some View {
@@ -39,7 +41,7 @@ struct LikeAndSaveView: View {
             .background(
                 Circle()
                     .fill(Color.clear)
-                    .stroke(Color.black, lineWidth: 1)
+                    .stroke(color, lineWidth: 1)
             )
             Text(" ")
         }
@@ -57,7 +59,7 @@ struct LikeAndSaveView: View {
             .background(
                 Capsule()
                     .fill(Color.clear)
-                    .stroke(Color.black, lineWidth: 1)
+                    .stroke(color, lineWidth: 1)
             )
             Text(story.comments.inStringWithoutZero)
         }
@@ -87,7 +89,7 @@ struct LikeAndSaveView: View {
             .background(
                 Circle()
                     .fill(Color.clear)
-                    .stroke(Color.black, lineWidth: 1)
+                    .stroke(color, lineWidth: 1)
             )
             .disabled(disableLike)
             .offset(y: animateLike ? 8 : 0)

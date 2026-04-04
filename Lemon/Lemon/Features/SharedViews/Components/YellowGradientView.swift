@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct YellowGradientView: View {
-    let endRadius: CGFloat = 140
+    var endRadius: CGFloat = 140
     var body: some View {
         RadialGradient(colors: Constants.yellowGradientColors,
                        center: .center,

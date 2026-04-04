@@ -64,7 +64,7 @@ struct LoginView: View {
             } label: {
                 Text("Don't have an account? Sign up")
                     .font(AppTypography.mediumApp())
-                    .foregroundStyle(Color.second)
+                    .foregroundStyle(Color.third)
                     .padding(.vertical)
             }
         }

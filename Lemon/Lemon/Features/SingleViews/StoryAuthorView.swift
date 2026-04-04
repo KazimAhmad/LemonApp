@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct StoryAuthorView: View {
-    let user: User
+    @State var user: User
+    var didFollow: (() -> Void)? = nil
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -59,7 +60,7 @@ struct StoryAuthorView: View {
             }
             
             Button {
-                //Follow
+                didFollow?()
             } label: {
                 Text("Follow")
                     .font(AppTypography.regularApp())
@@ -69,7 +70,7 @@ struct StoryAuthorView: View {
                     .background(
                         RoundedRectangle(cornerRadius: 8)
                             .fill(Color.clear)
-                            .stroke(Color.accent, lineWidth: 2)
+                            .stroke(Color.third, lineWidth: 2)
                     )
             }
             .padding(.top, 8)
