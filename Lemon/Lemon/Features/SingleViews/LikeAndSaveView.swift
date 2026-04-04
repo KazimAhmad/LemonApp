@@ -54,8 +54,8 @@ struct LikeAndSaveView: View {
             } label: {
                 Images.comment
             }
-            .padding(.horizontal, 24)
-            .padding(.vertical, 8)
+            .padding(8)
+            .frame(maxWidth: .infinity)
             .background(
                 Capsule()
                     .fill(Color.clear)

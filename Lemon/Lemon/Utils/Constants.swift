@@ -10,6 +10,7 @@ import SwiftUI
 enum Constants {
     static let alertCornerRadius: CGFloat = 48
     static let shadowRadius: CGFloat = 16
+    static let smallShadowRadius: CGFloat = 8
     static let logoFontSize: CGFloat = 48
     static let yellowGradientColors: [Color] = [.accent,
                                                 .accent.opacity(0.9),

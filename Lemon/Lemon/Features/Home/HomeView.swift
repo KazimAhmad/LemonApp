@@ -13,17 +13,38 @@ struct HomeView: View {
     var body: some View {
         VStack(alignment: .leading) {
             AppHeaderView()
-            Text("Recent Stories")
-                .padding()
-                .font(AppTypography.mediumApp())
-            ZStack {
+            HStack {
+                Text("Recent Stories")
+                    .font(AppTypography.mediumApp())
+                Spacer()
+                Button {
+                    viewModel.toggleStoryType()
+                } label: {
+                    ForEach(viewModel.storyViewTypes, id: \.self) { type in
+                        type.image
+                            .resizable()
+                            .frame(width: type.size.width,
+                                   height: type.size.height)
+                    }
+                }
+            }
+            .padding(.horizontal)
+            .padding(.top)
+
+            VStack {
                 switch viewModel.viewState {
                 case .loading:
                     LoadingView()
                         .padding()
                 case .info:
-                    backgroundSheetsView()
-                    storiesView()
+                    if viewModel.storyViewTypes.first == .page(true) {
+                        ZStack {
+                            backgroundSheetsView()
+                            storiesPageView()
+                        }
+                    } else {
+                        storiesListView()
+                    }
                 case .empty:
                     LemonAlertView(config: AlertConfig(type: .empty))
                 case .error(let error):
@@ -38,7 +59,7 @@ struct HomeView: View {
         }
     }
     
-    private func storiesView() -> some View {
+    private func storiesPageView() -> some View {
         ScrollView(showsIndicators: false) {
             LazyVStack(spacing: 0) {
                 ForEach(viewModel.stories, id: \.id) { story in
@@ -65,6 +86,17 @@ struct HomeView: View {
         }
     }
     
+    private func storiesListView() -> some View {
+        ScrollView(showsIndicators: false) {
+            LazyVStack(spacing: 0) {
+                ForEach(viewModel.stories, id: \.id) { story in
+                    StorySmallView(story: story)
+                }
+                LoadMoreView()
+            }
+        }
+    }
+    
     private func backgroundSheetsView() -> some View {
         GeometryReader { geometry in
             ZStack {
@@ -85,11 +117,4 @@ struct HomeView: View {
 
 #Preview {
     HomeView(viewModel: HomeViewModel())
-}
-
-struct LoadMoreView: View {
-    var body: some View {
-        ProgressView()
-            .tint(Color.second)
-    }
 }

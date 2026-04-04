@@ -11,9 +11,52 @@ struct StorySmallView: View {
     let story: Story
     
     var body: some View {
-        VStack {
-            Text(story.title)
+        VStack(alignment: .leading) {
+            Text(story.author.name())
+                .font(AppTypography.bold18())
+                .padding(.vertical, 8)
+                .background(
+                    RoundedRectangle(cornerRadius: 8.0)
+                        .fill(Color.second)
+                        .offset(x: -48)
+                        .padding(.trailing, -66)
+                )
+            VStack(alignment: .leading) {
+                Images.quoute
+                    .resizable()
+                    .frame(width: 18, height: 14)
+                Text(story.title)
+                    .font(AppTypography.mediumApp())
+                Text(story.storyline)
+                    .font(AppTypography.regularApp())
+                    .lineLimit(3)
+                    .foregroundStyle(Color.black)
+                HStack {
+                    Spacer()
+                    Text("Read story...")
+                        .font(AppTypography.medium(size: 12))
+                        .foregroundStyle(Color.fourth)
+                        .padding(8)
+                        .background(
+                            Capsule()
+                                .fill(Color.third)
+                        )
+                }
+            }
+            .onTapGesture {
+                print("read more")
+            }
+            LikeAndSaveView(story: story)
+            Text(story.date.appString)
+                .font(AppTypography.medium14())
         }
+        .frame(maxWidth: .infinity)
+        .padding()
+        .background(
+            RoundedRectangle(cornerRadius: 16.0)
+                .fill(Color.accent)
+        )
+        .padding()
     }
 }
 

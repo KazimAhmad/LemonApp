@@ -47,11 +47,12 @@ struct StoryView: View {
                 Spacer()
                 HStack {
                     Text(story.date.appString)
-                        .font(AppTypography.regular14())
+                        .font(AppTypography.medium14())
                         .foregroundStyle(Color.black)
                 }
                 LikeAndSaveView(story: story)
                     .padding(.bottom, 48)
+                    .padding(.leading, 16)
             }
             .multilineTextAlignment(.trailing)
         }

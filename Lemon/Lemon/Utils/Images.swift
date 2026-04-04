@@ -47,4 +47,10 @@ public enum Images {
     static let comment: Image = Image(systemName: "bubble.left.and.bubble.right")
     
     static let quoute: Image = Image(systemName: "quote.opening")
+    
+    static let grid: Image = Image(systemName: "rectangle.grid.1x3")
+    static let gridSelected: Image = Image(systemName: "rectangle.grid.1x3.fill")
+
+    static let page: Image = Image(systemName: "append.page")
+    static let pageSelected: Image = Image(systemName: "append.page.fill")
 }

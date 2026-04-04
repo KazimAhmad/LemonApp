@@ -26,6 +26,19 @@ enum AlertType {
         }
     }
     
+    var message: String {
+        switch self {
+        case .empty:
+            return "No data available at the moment."
+        case .error:
+            return "Unexpected error occured while processing your request. Please try again later."
+        case .warning:
+            return "Are you sure you would like to proceed?"
+        case .info:
+            return ""
+        }
+    }
+    
     var image: Image {
         switch self {
             case .empty:
@@ -85,26 +98,28 @@ struct LemonAlertView: View {
                         .font(AppTypography.bold(size: 28))
                     Spacer()
                 }
-                Text(config.message)
+                Text(config.type == .empty ? config.type.message : config.message)
                     .font(AppTypography.regularApp())
                 HStack {
-                    Spacer()
-                    if let cancel = config.cancelTitle {
-                        Button {
-                            config.cancelAction?()
-                        } label: {
-                            Text(cancel)
+                    if config.type != .empty {
+                        Spacer()
+                        if let cancel = config.cancelTitle {
+                            Button {
+                                config.cancelAction?()
+                            } label: {
+                                Text(cancel)
+                            }
+                            .buttonStyle(GreenBorderButton())
+                            .frame(width: 120)
                         }
-                        .buttonStyle(GreenBorderButton())
+                        Button {
+                            config.confirmAction?()
+                        } label: {
+                            Text(config.confirmTitle)
+                        }
+                        .buttonStyle(YellowAndBlackButton())
                         .frame(width: 120)
                     }
-                    Button {
-                        config.confirmAction?()
-                    } label: {
-                        Text(config.confirmTitle)
-                    }
-                    .buttonStyle(YellowAndBlackButton())
-                    .frame(width: 120)
                 }
             }
             .padding()
