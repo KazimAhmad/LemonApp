@@ -17,7 +17,7 @@ struct ProfileView: View {
     var body: some View {
         VStack(spacing: 0) {
             AppHeaderView()
-            ScrollView {
+            ScrollView(showsIndicators: false) {
                 switch viewModel.viewState {
                 case .loading:
                     LoadingView()
@@ -30,10 +30,17 @@ struct ProfileView: View {
                     LemonAlertView(config: .init(message: error.localizedDescription))
 
                 }
+                userStories()
+                LazyVStack {
+                    LoadMoreView()                    
+                }
             }
             .padding(.horizontal)
         }
         .ignoresSafeArea(edges: .top)
+        .task {
+            viewModel.getStories()
+        }
     }
     
     private func infoView() -> some View {
@@ -141,6 +148,23 @@ struct ProfileView: View {
                         .fill(Color.init(uiColor: .systemBackground))
                         .stroke(Color.second, lineWidth: 2)
                 )
+        }
+    }
+    
+    private func userStories() -> some View {
+        LazyVGrid(columns: [GridItem(.flexible(minimum: 100,
+                                               maximum: 200),
+                                     spacing: 8,
+                                     alignment: .leading),
+                            GridItem(.flexible(minimum: 100,
+                                                                   maximum: 200),
+                                                         spacing: 8,
+                                                         alignment: .leading)]) {
+            ForEach(viewModel.stories, id: \.id) { story in
+                StoryCardView(story: story) {
+                    
+                }
+            }
         }
     }
 }

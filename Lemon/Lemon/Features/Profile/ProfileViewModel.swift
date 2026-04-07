@@ -12,6 +12,8 @@ class ProfileViewModel: ObservableObject {
     @Published var user: User?
     @Published var viewState: ViewState = .loading
     
+    var stories: [Story] = []
+
     init() {
         getUser()
     }
@@ -37,5 +39,17 @@ class ProfileViewModel: ObservableObject {
                                         Passion(id: 2,
                                                 name: "Singing")])
         })
+    }
+}
+
+//MARK: Services
+extension ProfileViewModel {
+    func getStories() {
+        guard stories.count == 0 else { return }
+        let repo = StoryRepo()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            self.stories = repo.getStories()
+            self.viewState = .info
+        }
     }
 }
