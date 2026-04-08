@@ -18,9 +18,9 @@ struct AppHeaderView: View {
                     .frame(width: 60, height: 60)
                 Text("Lemon")
                     .font(AppTypography.bold(size: 32))
-                    .foregroundStyle(Color(uiColor: .systemBackground))
                 Spacer()
             }
+            .foregroundStyle(Color(uiColor: .systemBackground))
         }
         .padding()
         .background(

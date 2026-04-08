@@ -5,19 +5,23 @@
         "passions": [
             {
                 "id": 1,
-                "name": "Painting"
+                "name": "Painting",
+                "color": "e4572e"
             },
             {
                 "id": 2,
-                "name": "Drawing"
+                "name": "Drawing",
+                "color": "17bebb"
             },
             {
                 "id": 3,
-                "name": "Writing"
+                "name": "Writing",
+                "color": "ffc914"
             },
             {
                 "id": 4,
-                "name": "Poetry"
+                "name": "Poetry",
+                "color": "76b041"
             }
         ]
     },
@@ -28,19 +32,23 @@
         "passions": [
             {
                 "id": 5,
-                "name": "Knitting"
+                "name": "Knitting",
+                "color": "e3170a"
             },
             {
                 "id": 6,
-                "name": "Sewing"
+                "name": "Sewing",
+                "color": "2d1e2f"
             },
             {
                 "id": 7,
-                "name": "Pottery"
+                "name": "Pottery",
+                "color": "2d1e2f"
             },
             {
                 "id": 8,
-                "name": "Woodworking"
+                "name": "Woodworking",
+                "color": "8789c0 "
             }
         ]
     },
@@ -51,27 +59,33 @@
         "passions": [
             {
                 "id": 9,
-                "name": "Singing"
+                "name": "Singing",
+                "color": "dbbadd"
             },
             {
                 "id": 10,
-                "name": "Acting"
+                "name": "Acting",
+                "color": "413c58"
             },
             {
                 "id": 11,
-                "name": "Dancing"
+                "name": "Dancing",
+                "color": "413c58"
             },
             {
                 "id": 12,
-                "name": "Playing instruments"
+                "name": "Playing instruments",
+                "color": "8789c0"
             },
             {
                 "id": 13,
-                "name": "StandUp Comedy"
+                "name": "StandUp Comedy",
+                "color": "776885"
             },
             {
                 "id": 14,
-                "name": "Storytelling"
+                "name": "Storytelling",
+                "color": "251351"
             }
         ]
     },
@@ -82,27 +96,33 @@
         "passions": [
             {
                 "id": 15,
-                "name": "Hiking"
+                "name": "Hiking",
+                "color": "251351"
             },
             {
                 "id": 16,
-                "name": "Surfing"
+                "name": "Surfing",
+                "color": "040926"
             },
             {
                 "id": 17,
-                "name": "Cycling"
+                "name": "Cycling",
+                "color": "040926"
             },
             {
                 "id": 18,
-                "name": "Yoga"
+                "name": "Yoga",
+                "color": "e4572e"
             },
             {
                 "id": 19,
-                "name": "Weightlifting"
+                "name": "Weightlifting",
+                "color": "c3bef7"
             },
             {
                 "id": 20,
-                "name": "Sports"
+                "name": "Sports",
+                "color": "db5461"
             }
         ]
     },
@@ -113,27 +133,33 @@
         "passions": [
             {
                 "id": 21,
-                "name": "Baking"
+                "name": "Baking",
+                "color": "4c5b5c"
             },
             {
                 "id": 22,
-                "name": "Gardening"
+                "name": "Gardening",
+                "color": "fde74c"
             },
             {
                 "id": 23,
-                "name": "Astronomy"
+                "name": "Astronomy",
+                "color": "d84727"
             },
             {
                 "id": 24,
-                "name": "Hiking"
+                "name": "Hiking",
+                "color": "042a2b"
             },
             {
                 "id": 25,
-                "name": "Volunteering"
+                "name": "Volunteering",
+                "color": "ef7b45"
             },
             {
                 "id": 26,
-                "name": "Board Games"
+                "name": "Board Games",
+                "color": "5eb1bf"
             }
         ]
     },
@@ -144,19 +170,23 @@
         "passions": [
             {
                 "id": 27,
-                "name": "Reading"
+                "name": "Reading",
+                "color": "14453d"
             },
             {
                 "id": 28,
-                "name": "Strategy Games"
+                "name": "Strategy Games",
+                "color": "3d7068"
             },
             {
                 "id": 29,
-                "name": "Language Learning"
+                "name": "Language Learning",
+                "color": "6a66a3"
             },
             {
                 "id": 30,
-                "name": "Video Gaming"
+                "name": "Video Gaming",
+                "color": "542e71"
             }
         ]
     }

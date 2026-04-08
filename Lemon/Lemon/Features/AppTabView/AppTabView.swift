@@ -73,10 +73,10 @@ struct AppTabView: View {
         case .profile:
             ProfileView(viewmodel: ProfileViewModel())
         case .settings:
-            Text("Settings")
+            SettingsView(viewModel: SettingsViewModel())
                 .tag(tab)
         case .search:
-            Text("Search")
+            SearchView(viewModel: SearchViewModel())
                 .tag(tab)
         }
     }

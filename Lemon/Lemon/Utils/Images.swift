@@ -53,4 +53,7 @@ public enum Images {
 
     static let page: Image = Image(systemName: "append.page")
     static let pageSelected: Image = Image(systemName: "append.page.fill")
+    
+    static let leftArrow: Image = Image(systemName: "chevron.left")
+    static let rightArrow: Image = Image(systemName: "chevron.right")
 }
