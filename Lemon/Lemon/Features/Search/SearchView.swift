@@ -21,17 +21,24 @@ struct SearchView: View {
                     ForEach(viewModel.allCategories, id: \.id) { category in
                         Text(category.name)
                             .font(AppTypography.regularApp())
+                            .padding(.horizontal)
                         ScrollView(.horizontal, showsIndicators: false) {
                             HStack(alignment: .bottom) {
+                                Rectangle()
+                                    .fill(Color.clear)
+                                    .frame(width: 8)
                                 ForEach(category.passions, id: \.id) { passion in
                                     passionView(passion: passion)
                                 }
+                                Rectangle()
+                                    .fill(Color.clear)
+                                    .frame(width: 8)
                             }
                         }
+                        .padding(.bottom)
                     }
                 }
             }
-            .padding(.horizontal)
         }
         .ignoresSafeArea(edges: .top)
         .task {
