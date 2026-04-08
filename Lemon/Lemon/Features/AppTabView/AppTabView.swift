@@ -71,7 +71,7 @@ struct AppTabView: View {
             HomeView(viewModel: HomeViewModel())
                 .tag(tab)
         case .profile:
-            Text("Profile")
+            ProfileView(viewmodel: ProfileViewModel())
         case .settings:
             Text("Settings")
                 .tag(tab)
