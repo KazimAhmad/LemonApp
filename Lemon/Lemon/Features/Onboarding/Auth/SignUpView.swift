@@ -62,7 +62,7 @@ struct SignUpView: View {
     private func buttonsView() -> some View {
         VStack {
             Button {
-                
+                viewModel.goToSecondStep()
             } label: {
                 Text("Next")
             }
@@ -70,7 +70,7 @@ struct SignUpView: View {
             .buttonStyle(YellowAndBlackButton())
             
             Button {
-                
+                viewModel.goBackToLogin()
             } label: {
                 Text("Already have an account? Login")
                     .font(AppTypography.mediumApp())

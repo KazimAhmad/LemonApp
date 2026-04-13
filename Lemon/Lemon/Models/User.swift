@@ -73,3 +73,9 @@ struct SignUpObject {
         self.passions = passions
     }
 }
+
+extension SignUpObject: Hashable {
+    static func == (lhs: SignUpObject, rhs: SignUpObject) -> Bool {
+        return lhs.email == rhs.email
+    }
+}

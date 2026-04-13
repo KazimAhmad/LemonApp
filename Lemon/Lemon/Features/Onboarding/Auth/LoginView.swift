@@ -60,7 +60,7 @@ struct LoginView: View {
             .buttonStyle(YellowAndBlackButton())
             
             Button {
-                
+                viewModel.goToSignUp()
             } label: {
                 Text("Don't have an account? Sign up")
                     .font(AppTypography.mediumApp())

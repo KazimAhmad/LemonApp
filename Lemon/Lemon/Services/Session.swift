@@ -14,4 +14,12 @@ class Session {
     var isAuthenticated: Bool = false
     var guest: Bool = false
     
+    func logout() {
+        isAuthenticated = false
+        guest = false
+    }
+    
+    func skipLogin() {
+        guest = true
+    }
 }

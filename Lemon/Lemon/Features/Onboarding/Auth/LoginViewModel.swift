@@ -12,6 +12,12 @@ class LoginViewModel: ObservableObject {
     @Published var email: String = ""
     @Published var password: String = ""
     
+    var coordinator: OnboardingCoordinator?
+    
+    init(coordinator: OnboardingCoordinator? = nil) {
+        self.coordinator = coordinator
+    }
+    
     func isFormValid() -> Bool {
         (!email.isEmpty && isEmailValid()) && !password.isEmpty
     }
@@ -19,4 +25,8 @@ class LoginViewModel: ObservableObject {
     private func isEmailValid() -> Bool {
         email.isEmail
     }
+    
+    func goToSignUp() {
+        coordinator?.goToSignUp()
+    }    
 }

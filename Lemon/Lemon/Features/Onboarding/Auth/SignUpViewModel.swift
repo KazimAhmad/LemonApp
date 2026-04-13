@@ -10,8 +10,13 @@ import SwiftUI
 
 class SignUpViewModel: ObservableObject {
     @Published var signUp: SignUpObject
-    init(signUp: SignUpObject = SignUpObject()) {
+    
+    var coordinator: OnboardingCoordinator?
+        
+    init(signUp: SignUpObject = SignUpObject(),
+         coordinator: OnboardingCoordinator? = nil) {
         self.signUp = signUp
+        self.coordinator = coordinator
     }
     
     func isFormValid() -> Bool {
@@ -24,5 +29,13 @@ class SignUpViewModel: ObservableObject {
     
     func isEmailValid() -> Bool {
         signUp.email.isEmail
+    }
+    
+    func goBackToLogin() {
+        coordinator?.goBackToLogin()
+    }
+    
+    func goToSecondStep() {
+        coordinator?.goToSignUpSecondStep(signUpObject: signUp)
     }
 }

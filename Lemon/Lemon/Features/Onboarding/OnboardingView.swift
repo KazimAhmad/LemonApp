@@ -41,7 +41,7 @@ struct OnboardingView: View {
         HStack {
             Spacer()
             Button {
-                
+                viewModel.skipAuth()
             } label: {
                 Text("Skip")
             }
@@ -49,7 +49,7 @@ struct OnboardingView: View {
             .frame(width: 120)
 
             Button {
-                
+                viewModel.goToLogin()
             } label: {
                 Text("Login")
             }

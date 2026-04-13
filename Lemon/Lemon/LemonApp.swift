@@ -25,8 +25,21 @@ struct LemonApp: App {
 
     var body: some Scene {
         WindowGroup {
-            Text("Lemon")
+            MainView()
         }
         .modelContainer(sharedModelContainer)
+    }
+}
+
+struct MainView: View {
+    var session: Session = Session.current
+    var coordinator = OnboardingCoordinator()
+
+    var body: some View {
+        if session.guest {
+            AppTabView()
+        } else {
+            coordinator.coordinatorView
+        }
     }
 }

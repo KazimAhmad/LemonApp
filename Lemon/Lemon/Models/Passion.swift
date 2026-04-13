@@ -24,3 +24,7 @@ struct PassionCategory: Codable {
     var name: String
     var passions: [Passion]
 }
+
+extension Passion: Hashable {
+    
+}

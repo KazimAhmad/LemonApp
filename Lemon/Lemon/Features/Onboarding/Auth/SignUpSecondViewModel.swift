@@ -11,10 +11,14 @@ import SwiftUI
 class SignUpSecondViewModel: ObservableObject {
     @Published var signUpObject: SignUpObject
     
-    init(signUpObject: SignUpObject) {
+    var coordinator: OnboardingCoordinator?
+        
+    init(signUpObject: SignUpObject,
+         coordinator: OnboardingCoordinator? = nil) {
         self.signUpObject = signUpObject
+        self.coordinator = coordinator
     }
-    
+
     func isFormValid() -> Bool {
         signUpObject.passions.count == 3 && !signUpObject.industry.isEmpty
     }
